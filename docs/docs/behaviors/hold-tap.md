@@ -84,6 +84,18 @@ For example, if you press `&mt LEFT_SHIFT A` and then release it without pressin
 };
 ```
 
+#### `hold-while-undecided`
+
+If enabled, the hold behavior will immediately be held on hold-tap press, and will release before the tap behavior is sent. With modifiers (excluding the windows key) this will not affect typing, and is useful for mod + clicking.
+
+:::note Alt behavior
+In some applications/desktop environments, pressing the alt or gui key by itself will have its own behavior like activate a menu.
+:::
+
+#### `hold-while-undecided-linger`
+
+If your tap behavior activates the same modifier as the hold behavior, and you want to avoid a double tap when transitioning from the hold to the tap, you can use `hold-while-undecided-linger`. When enabled, the hold behavior will continue to be held until _after_ the tap behavior is released. For example, if the hold is `&kp LGUI` and the tap is `&sk LGUI`, then with `hold-while-undecided-linger` enabled, the host will see `LGUI` held down continuously until the sticky key is finished, instead of seeing a release and press when transitioning from hold to sticky key.
+
 #### Positional hold-tap and `hold-trigger-key-positions`
 
 Including `hold-trigger-key-positions` in your hold-tap definition turns on the positional hold-tap feature. With positional hold-tap enabled, if you press any key **NOT** listed in `hold-trigger-key-positions` before `tapping-term-ms` expires, it will produce a tap.
