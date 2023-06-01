@@ -58,17 +58,19 @@ Definition file: [zmk/app/dts/bindings/behaviors/zmk,behavior-hold-tap.yaml](htt
 
 Applies to: `compatible = "zmk,behavior-hold-tap"`
 
-| Property                     | Type          | Description                                                                               | Default            |
-| ---------------------------- | ------------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| `label`                      | string        | Unique label for the node                                                                 |                    |
-| `#binding-cells`             | int           | Must be `<2>`                                                                             |                    |
-| `bindings`                   | phandle array | A list of two behaviors (without parameters): one for hold and one for tap                |                    |
-| `flavor`                     | string        | Adjusts how the behavior chooses between hold and tap                                     | `"hold-preferred"` |
-| `tapping-term-ms`            | int           | How long in milliseconds the key must be held to trigger a hold                           |                    |
-| `quick-tap-ms`               | int           | Tap twice within this period (in milliseconds) to trigger a tap, even when held           | -1 (disabled)      |
-| `global-quick-tap`           | bool          | If enabled, `quick-tap-ms` also applies when tapping another key and then this one.       | false              |
-| `retro-tap`                  | bool          | Triggers the tap behavior on release if no other key was pressed during a hold            | false              |
-| `hold-trigger-key-positions` | array         | If set, pressing the hold-tap and then any key position _not_ in the list triggers a tap. |                    |
+| Property                      | Type          | Description                                                                               | Default            |
+| ----------------------------- | ------------- | ----------------------------------------------------------------------------------------- | ------------------ |
+| `label`                       | string        | Unique label for the node                                                                 |                    |
+| `#binding-cells`              | int           | Must be `<2>`                                                                             |                    |
+| `bindings`                    | phandle array | A list of two behaviors (without parameters): one for hold and one for tap                |                    |
+| `flavor`                      | string        | Adjusts how the behavior chooses between hold and tap                                     | `"hold-preferred"` |
+| `tapping-term-ms`             | int           | How long in milliseconds the key must be held to trigger a hold                           |                    |
+| `quick-tap-ms`                | int           | Tap twice within this period (in milliseconds) to trigger a tap, even when held           | -1 (disabled)      |
+| `global-quick-tap`            | bool          | If enabled, `quick-tap-ms` also applies when tapping another key and then this one.       | false              |
+| `retro-tap`                   | bool          | Triggers the tap behavior on release if no other key was pressed during a hold            | false              |
+| `hold-while-undecided`        | bool          | Triggers the hold behavior immediately on press and releases before a tap                 | false              |
+| `hold-while-undecided-linger` | bool          | Continues to hold the hold behavior until after the tap is released                       | false              |
+| `hold-trigger-key-positions`  | array         | If set, pressing the hold-tap and then any key position _not_ in the list triggers a tap. |                    |
 
 The `flavor` property may be one of:
 
